@@ -7,8 +7,8 @@ import Toast from 'react-native-toast-message';
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
+      <Toast />
       <NavigationContainer>
-        <Toast />
         <MyStackNavigation />
       </NavigationContainer>
     </ThemeProvider>

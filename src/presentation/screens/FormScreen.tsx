@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, ActivityIndicator, Alert} from 'react-native';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {getDataForm, sendDataForm} from '../../api/data-form';
@@ -79,13 +79,14 @@ const FormScreen = () => {
     try {
       setIsLoading(true);
       const response = await sendDataForm(formattedData);
-      if (response.status >= 200 && response.status <= 299) {
+      if (response.status === 200) {
         Toast.show({
           type: 'success',
           text1: 'Éxito Las respuestas',
           text2: 'se han enviado correctamente ✌️',
         });
-      } else if (response?.status >= 400 && response?.status <= 600) {
+        Alert.alert('Info Exitosa');
+      } else {
         Toast.show({
           type: 'error',
           text1: 'Hubo un problema al enviar las respuestas',

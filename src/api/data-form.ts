@@ -16,7 +16,6 @@ export const getDataForm = async () => {
 
 //ppost DataForm
 export const sendDataForm = async (data:unknown) => {
-  console.log('DATA BACKEND=>',JSON.stringify(data,null,2));
   try {
     const response = await ApiManager('answer', {
       method: 'POST',
